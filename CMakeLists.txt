@@ -27,9 +27,17 @@ set( INC
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -lncurses -lstdc++")
 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -g")
 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O2")
+
+
+add_subdirectory(sorts)
 add_subdirectory(random)
+add_subdirectory(drawing)
+
+
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
+
+
 enable_testing()
 
 

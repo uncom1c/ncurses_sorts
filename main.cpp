@@ -1,52 +1,20 @@
 #include <iostream>
-#include "random/random.h"
 #include <ncurses.h>
 #include <vector>
 #include <cassert>
 #include <stdlib.h>
 #include <unistd.h>
-void picturing(WINDOW* win, int x, int y, int *arr, int size){
-    erase();
-    for(int i = 0; i< size;i++){
-        move(x, y);
-        for (int j=0; j<arr[i]; j++){
-            move(x-j-1,y);
-            printw("x");
-            move(x-j-1,y+1);
-            printw("x");
-            move(x-j-1,y+2);
-            printw("x");
-        }
-        y=y+3;
-    }
+#include <cstring>
 
-    usleep(100000);
-}
-void gnome_sort(WINDOW* win,int *arr, int size ,int x,int y)
+
+#include "random/random.h"
+#include "sorts/sorts.h"
+int main(int argc, char *argv[])
 {
-    int i = 1;
-    int j=2;   
-	while(i< size)  
-    {
-        if (arr[i-1] < arr[i]){
-            i=j;
-            j++;
-            picturing(win, x,y,arr,size);
-        }
-        else{
-            std::swap(arr[i-1], arr[i]);
-            i=i-1;
-            picturing(win, x,y,arr,size);
-            refresh();
-            if (i==0){
-                i=j; 
-                j++;
-            }
-        }
+    if (argc < 2){
+        std::cout<<"need more argumets lol";
+        return 0;
     }
-}
-int main()
-{
     initscr();
     curs_set(0);
     timeout(-1);
@@ -61,7 +29,15 @@ int main()
     WINDOW* win = newwin(row,col,0,0);
     x = row;
     y=0;
-    gnome_sort(win, arr, size, x , y);
+    if (!strcmp(argv[1], "gnome")){
+        gnome_sort(win, arr, size, x , y);
+    } 
+    if (!strcmp(argv[1], "selection")){
+        selectionSort(win, arr, size, x , y);
+    } 
+    if (!strcmp(argv[1], "insert")){
+        insertSort(win, arr, size, x , y);
+    } 
     getch(); // ждём нажатия символа
     endwin();
 
