@@ -38,6 +38,40 @@ int main(int argc, char *argv[])
     if (!strcmp(argv[1], "insert")){
         insertSort(win, arr, size, x , y);
     } 
+    if (!strcmp(argv[1], "bubble")){
+        bubbleSort(win, arr, size, x , y);
+    } 
+    if (!strcmp(argv[1], "cocktail")){
+        cocktailSort(win, arr, size, x , y);
+    } 
+    if (!strcmp(argv[1], "quick")){
+        int left = 0;
+        int right = size-1;
+        quickSort(win, arr, left, right, size, x , y);
+    } 
+    if (!strcmp(argv[1], "shell")){
+        ShellSort(win, arr, size, x , y);
+    } 
+    if (!strcmp(argv[1], "stooge")){
+        int left = 0;
+        int right = size-1;
+        stooge_sort(win, arr, left, right, size, x , y);
+    } 
+    if (!strcmp(argv[1], "slow")){
+        int left = 0;
+        int right = size-1;
+        slow_sort(win, arr, left, right, size, x , y);
+    } 
+    if (!strcmp(argv[1], "odd_even")){
+        odd_even_sort(win, arr, size, x , y);
+    } 
+    if (!strcmp(argv[1], "bogo")){
+        bool is_sorted = false;
+        while (!is_sorted){
+            bogo_sort(win, arr, size, x , y, is_sorted);
+            numbers(arr);
+        }
+    } 
     getch(); // ждём нажатия символа
     endwin();
 
