@@ -30,6 +30,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -lncurses -lstdc++")
 
 
 add_subdirectory(sorts)
+add_subdirectory(tests)
 add_subdirectory(random)
 add_subdirectory(drawing)
 

@@ -34,55 +34,55 @@ int main(int argc, char *argv[])
     bool seen_cmd = false;
     if (!strcmp(argv[1], "gnome")){
         seen_cmd=true;
-        gnome_sort(win, arr, size, x , y);
+        gnome_sort(arr, size);
     } 
     if (!strcmp(argv[1], "selection")){
-        selectionSort(win, arr, size, x , y);
+        selectionSort(arr, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "insert")){
-        insertSort(win, arr, size, x , y);
+        insertSort(arr, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "bubble")){
-        bubbleSort(win, arr, size, x , y);
+        bubbleSort(arr, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "cocktail")){
-        cocktailSort(win, arr, size, x , y);
+        cocktailSort(arr, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "quick")){
         int left = 0;
         int right = size-1;
-        quickSort(win, arr, left, right, size, x , y);
+        quickSort(arr, left, right, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "shell")){
-        ShellSort(win, arr, size, x , y);
+        ShellSort(arr, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "stooge")){
         int left = 0;
         int right = size-1;
-        stooge_sort(win, arr, left, right, size, x , y);
+        stooge_sort(arr, left, right, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "slow")){
         int left = 0;
         int right = size-1;
-        slow_sort(win, arr, left, right, size, x , y);
+        slow_sort(arr, left, right, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "odd-even")){
-        odd_even_sort(win, arr, size, x , y);
+        odd_even_sort(arr, size);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "bogo")){
         seen_cmd=true;
         bool is_sorted = false;
         while (!is_sorted){
-            bogo_sort(win, arr, size, x , y, is_sorted);
+            bogo_sort(arr, size,is_sorted);
             numbers(arr);
         }
     }
@@ -91,7 +91,7 @@ int main(int argc, char *argv[])
         seen_cmd=true;
         bool is_sorted = false;
         while (!is_sorted){
-            bogo_sort(win, arr, size, x , y, is_sorted);
+            bogo_sort(arr, size,is_sorted);
             numbers(arr);
         }
     }

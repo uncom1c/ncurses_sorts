@@ -1,13 +1,13 @@
 #include "sorts.cpp"
 
-void gnome_sort(WINDOW* win,int *arr, int size ,int x,int y);
-void selectionSort(WINDOW* win, int* arr, int size, int x, int y);
-void insertSort(WINDOW* win, int* arr, int size, int x, int y);
-void bubbleSort(WINDOW* win, int* arr, int size, int x, int y);
-void cocktailSort(WINDOW* win, int* arr, int size, int x, int y);
-void quickSort(WINDOW* win, int* arr, int left, int right, int size, int x, int y);
-void ShellSort(WINDOW* win, int* arr, int size, int x, int y);
-void stooge_sort(WINDOW* win, int* arr, int left, int right, int size, int x, int y);
-void slow_sort(WINDOW* win, int* arr, int left, int right, int size, int x, int y);
-void odd_even_sort(WINDOW* win, int *arr, int size, int x, int y);
-void bogo_sort(WINDOW* win, int *arr, int size, int x, int y, bool is_sorted);
+void gnome_sort(int *arr, int size );
+void selectionSort( int* arr, int size);
+void insertSort( int* arr, int size);
+void bubbleSort( int* arr, int size);
+void cocktailSort( int* arr, int size);
+void quickSort( int* arr, int left, int right, int size);
+void ShellSort( int* arr, int size);
+void stooge_sort( int* arr, int left, int right, int size);
+void slow_sort( int* arr, int left, int right, int size);
+void odd_even_sort( int *arr, int size);
+void bogo_sort( int *arr, int size,bool is_sorted);

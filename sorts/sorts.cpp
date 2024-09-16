@@ -2,7 +2,7 @@
 #include <ncurses.h>
 #include "../drawing/picturing.h"
 
-void gnome_sort(WINDOW* win,int *arr, int size ,int x,int y)
+void gnome_sort(int *arr, int size )
 {
     int i = 1;
     int j=2;   
@@ -11,13 +11,13 @@ void gnome_sort(WINDOW* win,int *arr, int size ,int x,int y)
         if (arr[i-1] < arr[i]){
             i=j;
             j++;
-            picturing(win, x,y,arr,size);
+            picturing(arr,size);
             refresh();
         }
         else{
             std::swap(arr[i-1], arr[i]);
             i=i-1;
-            picturing(win, x,y,arr,size);
+            picturing(arr,size);
             refresh();
             if (i==0){
                 i=j; 
@@ -26,7 +26,7 @@ void gnome_sort(WINDOW* win,int *arr, int size ,int x,int y)
         }
     }
 }
-void selectionSort(WINDOW* win, int* arr, int size, int x, int y)
+void selectionSort( int* arr, int size)
 {   
     int min;
     for (int i = 0; i < size - 1; i++)
@@ -41,15 +41,15 @@ void selectionSort(WINDOW* win, int* arr, int size, int x, int y)
         if (min == i) continue;  
         std::swap(arr[i], arr[min]);
 
-        picturing(win, x,y,arr,size);
+            picturing(arr,size);
         refresh();
     }
 }
-void insertSort(WINDOW* win, int* arr, int size, int x, int y) {
+void insertSort( int* arr, int size) {
     for (int i = 1; i < size; i++) {
         for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
             std::swap(arr[j-1], arr[j]);
-            picturing(win, x,y,arr,size);
+            picturing(arr,size);
             refresh();
         }
     }
@@ -61,7 +61,7 @@ void insertSort(WINDOW* win, int* arr, int size, int x, int y) {
 /// \param arr - рандомное распределение
 /// \param size - размер arr
 /// \param vec - вектор, хранящий все итерации, чтобы впоследствии их визуализировать
-void bubbleSort(WINDOW* win, int* arr, int size, int x, int y)
+void bubbleSort( int* arr, int size)
 {
 
     for (int i = 0; i < size - 1; ++i) // i - номер прохода
@@ -71,7 +71,7 @@ void bubbleSort(WINDOW* win, int* arr, int size, int x, int y)
             if (arr[j + 1] < arr[j])
             {
                 std::swap(arr[j], arr[j + 1]);
-                picturing(win, x,y,arr,size);
+            picturing(arr,size);
                 refresh();
             }
         }
@@ -82,7 +82,7 @@ void bubbleSort(WINDOW* win, int* arr, int size, int x, int y)
 /// \param arr - рандомное распределение
 /// \param n - размер arr
 /// \param vec - вектор, хранящий все итерации, чтобы впоследствии их визуализировать
-void cocktailSort(WINDOW* win, int* arr, int size, int x, int y) {
+void cocktailSort( int* arr, int size) {
     bool flag = true;
     int start = 0, end = size - 1;
     while (flag) {
@@ -90,7 +90,7 @@ void cocktailSort(WINDOW* win, int* arr, int size, int x, int y) {
         for (int i = start; i < end; i++) { //scan from left to right as bubble sort
             if (arr[i] > arr[i + 1]) {
                 std::swap(arr[i], arr[i + 1]);
-                picturing(win, x,y,arr,size);
+            picturing(arr,size);
                 refresh();
                 flag = true;
             }
@@ -103,7 +103,7 @@ void cocktailSort(WINDOW* win, int* arr, int size, int x, int y) {
         for (int i = end - 1; i >= start; i--) { //scan from right to left
             if (arr[i] > arr[i + 1]) {
                 std::swap(arr[i],arr[i + 1]);
-                picturing(win, x,y,arr,size);
+            picturing(arr,size);
                 refresh();
                 flag = true;
             }
@@ -111,7 +111,7 @@ void cocktailSort(WINDOW* win, int* arr, int size, int x, int y) {
         start++;
     }
 }
-int partition(WINDOW* win, int* arr, int left, int right, int size, int x, int y)
+int partition( int* arr, int left, int right, int size)
 {
     int median = arr[right];
     int i = left - 1;
@@ -122,12 +122,12 @@ int partition(WINDOW* win, int* arr, int left, int right, int size, int x, int y
         {
             i++;
             std::swap(arr[i], arr[j]);
-                picturing(win, x,y,arr,size);
+            picturing(arr,size);
                 refresh();
         }
     }
     std::swap(arr[right], arr[i+1]);
-    picturing(win, x,y,arr,size);
+            picturing(arr,size);
     refresh();
     return i + 1;
 }
@@ -136,18 +136,18 @@ int partition(WINDOW* win, int* arr, int left, int right, int size, int x, int y
 /// \param left - левая граница
 /// \param right - правая граница
 /// \param vec - вектор, хранящий все итерации, чтобы впоследствии их визуализировать
-void quickSort(WINDOW* win, int* arr, int left, int right, int size, int x, int y)
+void quickSort( int* arr, int left, int right, int size)
 {
     int p;
     if (left < right) {
-        p = partition( win,arr, left, right, size, x, y);
-        quickSort(win, arr, left, p - 1, size, x, y);
-        quickSort(win, arr, p + 1, right, size, x, y);
+        p = partition(arr, left, right, size);
+        quickSort( arr, left, p - 1, size);
+        quickSort( arr, p + 1, right, size);
     }
 }
 
 //СОРТИРОВКА ШЕЛЛА
-void ShellSort(WINDOW* win, int* arr, int size, int x, int y)
+void ShellSort( int* arr, int size)
 {
     for (int step = size / 2; step > 0; step = step / 2)  // Расстояние между элементами
     {
@@ -158,7 +158,7 @@ void ShellSort(WINDOW* win, int* arr, int size, int x, int y)
                 if (arr[j] > arr[j + step])                 // Сравниваем элементы
                 {
                     std::swap(arr[j], arr[j + step]);
-                    picturing(win, x,y,arr,size);
+            picturing(arr,size);
                     refresh();
                 }
             }
@@ -167,10 +167,10 @@ void ShellSort(WINDOW* win, int* arr, int size, int x, int y)
 }
 
 
-void stooge_sort(WINDOW* win, int* arr, int left, int right, int size, int x, int y){
+void stooge_sort( int* arr, int left, int right, int size){
     if(arr[left]> arr[right]){
         std::swap(arr[left], arr[right]);
-        picturing(win, x,y,arr,size);
+            picturing(arr,size);
         refresh();
     }
     if(left+1 >= right){
@@ -178,37 +178,37 @@ void stooge_sort(WINDOW* win, int* arr, int left, int right, int size, int x, in
     }
     int temp;
     temp = (right-left+1)/3;
-    stooge_sort(win, arr, left, right - temp, size, x, y);
-    stooge_sort(win, arr, left + temp, right, size, x, y);
-    stooge_sort(win, arr, left, right - temp, size, x, y);
+    stooge_sort( arr, left, right - temp, size);
+    stooge_sort( arr, left + temp, right, size);
+    stooge_sort( arr, left, right - temp, size);
 
 }
 
 
-void slow_sort(WINDOW* win, int* arr, int left, int right, int size, int x, int y){
+void slow_sort( int* arr, int left, int right, int size){
     if (left>=right){
         return;
     }
     int middle = (left+right)/2;
-    slow_sort(win, arr, left, middle, size, x, y);
-    slow_sort(win,arr, middle+1, right, size, x, y);
+    slow_sort( arr, left, middle, size);
+    slow_sort(arr, middle+1, right, size);
     if (arr[right]< arr[middle]){
         std::swap(arr[right], arr[middle]);
-        picturing(win, x,y,arr,size);
+            picturing(arr,size);
         refresh();
     }
-    slow_sort(win, arr, left, right-1, size, x, y);
+    slow_sort( arr, left, right-1, size);
 }
 
 
-void odd_even_sort(WINDOW* win, int *arr, int size, int x, int y){
+void odd_even_sort( int *arr, int size){
     bool is_sorted =false;
     while (!is_sorted){
         is_sorted=true;
         for (int i =1; i<=size-2; i=i+2){
             if (arr[i]> arr[i+1]){
                 std::swap(arr[i], arr[i+1]);
-                picturing(win, x,y,arr,size);
+            picturing(arr,size);
                 refresh();
                 is_sorted=false;
             }
@@ -216,7 +216,7 @@ void odd_even_sort(WINDOW* win, int *arr, int size, int x, int y){
         for (int i =0; i<=size-2; i=i+2){
             if (arr[i]> arr[i+1]){
                 std::swap(arr[i], arr[i+1]);
-                picturing(win, x,y,arr,size);
+            picturing(arr,size);
                 refresh();
                 is_sorted=false;
             }
@@ -224,9 +224,9 @@ void odd_even_sort(WINDOW* win, int *arr, int size, int x, int y){
     }
     return;
 }
-void bogo_sort(WINDOW* win, int *arr, int size, int x, int y, bool is_sorted)
+void bogo_sort( int *arr, int size, bool is_sorted)
 {
-    picturing(win, x,y,arr,size);
+            picturing(arr,size);
     refresh();
     is_sorted = true;
     for (int i=1; i<size; i++){

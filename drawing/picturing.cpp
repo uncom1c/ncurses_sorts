@@ -1,7 +1,13 @@
 
 #include <ncurses.h>
 #include <unistd.h>
-void picturing(WINDOW* win, int x, int y, int *arr, int size){
+void picturing( int *arr, int size){
+    int x, y;
+    int row, col;
+    getmaxyx(stdscr,row,col);
+    x= row;
+    y = 0;
+    WINDOW* win = newwin(row,col,0,0);
     erase();
     for(int i = 0; i< size;i++)
     {
