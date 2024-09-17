@@ -2,7 +2,7 @@
 #include <ncurses.h>
 #include "../drawing/picturing.h"
 
-void gnome_sort(int *arr, int size )
+void gnome_sort(int *arr, int size, bool do_sort )
 {
     int i = 1;
     int j=2;   
@@ -11,14 +11,18 @@ void gnome_sort(int *arr, int size )
         if (arr[i-1] < arr[i]){
             i=j;
             j++;
+            if (do_sort){
             picturing(arr,size);
             refresh();
+            }
         }
         else{
             std::swap(arr[i-1], arr[i]);
             i=i-1;
+            if (do_sort){
             picturing(arr,size);
             refresh();
+            }
             if (i==0){
                 i=j; 
                 j++;
@@ -26,7 +30,7 @@ void gnome_sort(int *arr, int size )
         }
     }
 }
-void selectionSort( int* arr, int size)
+void selectionSort( int* arr, int size, bool do_sort)
 {   
     int min;
     for (int i = 0; i < size - 1; i++)
@@ -41,16 +45,20 @@ void selectionSort( int* arr, int size)
         if (min == i) continue;  
         std::swap(arr[i], arr[min]);
 
-            picturing(arr,size);
+            
+        if (do_sort){
+        picturing(arr,size);
         refresh();
+        }
     }
 }
-void insertSort( int* arr, int size) {
+void insertSort( int* arr, int size, bool do_sort) {
     for (int i = 1; i < size; i++) {
         for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
             std::swap(arr[j-1], arr[j]);
+            if (do_sort){
             picturing(arr,size);
-            refresh();
+            refresh();}
         }
     }
 }
@@ -61,7 +69,7 @@ void insertSort( int* arr, int size) {
 /// \param arr - рандомное распределение
 /// \param size - размер arr
 /// \param vec - вектор, хранящий все итерации, чтобы впоследствии их визуализировать
-void bubbleSort( int* arr, int size)
+void bubbleSort( int* arr, int size, bool do_sort)
 {
 
     for (int i = 0; i < size - 1; ++i) // i - номер прохода
@@ -71,8 +79,9 @@ void bubbleSort( int* arr, int size)
             if (arr[j + 1] < arr[j])
             {
                 std::swap(arr[j], arr[j + 1]);
-            picturing(arr,size);
-                refresh();
+                if (do_sort){
+                    picturing(arr,size);
+                    refresh();}
             }
         }
     }
@@ -82,7 +91,7 @@ void bubbleSort( int* arr, int size)
 /// \param arr - рандомное распределение
 /// \param n - размер arr
 /// \param vec - вектор, хранящий все итерации, чтобы впоследствии их визуализировать
-void cocktailSort( int* arr, int size) {
+void cocktailSort( int* arr, int size, bool do_sort) {
     bool flag = true;
     int start = 0, end = size - 1;
     while (flag) {
@@ -90,8 +99,9 @@ void cocktailSort( int* arr, int size) {
         for (int i = start; i < end; i++) { //scan from left to right as bubble sort
             if (arr[i] > arr[i + 1]) {
                 std::swap(arr[i], arr[i + 1]);
-            picturing(arr,size);
-                refresh();
+                if (do_sort){
+                    picturing(arr,size);
+                    refresh();}
                 flag = true;
             }
         }
@@ -103,15 +113,16 @@ void cocktailSort( int* arr, int size) {
         for (int i = end - 1; i >= start; i--) { //scan from right to left
             if (arr[i] > arr[i + 1]) {
                 std::swap(arr[i],arr[i + 1]);
-            picturing(arr,size);
-                refresh();
+                if (do_sort){
+                    picturing(arr,size);
+                    refresh();}
                 flag = true;
             }
         }
         start++;
     }
 }
-int partition( int* arr, int left, int right, int size)
+int partition( int* arr, int left, int right, int size, bool do_sort)
 {
     int median = arr[right];
     int i = left - 1;
@@ -122,13 +133,16 @@ int partition( int* arr, int left, int right, int size)
         {
             i++;
             std::swap(arr[i], arr[j]);
+            if (do_sort){
             picturing(arr,size);
-                refresh();
+            refresh();
+            }
         }
     }
     std::swap(arr[right], arr[i+1]);
-            picturing(arr,size);
-    refresh();
+    if (do_sort){
+        picturing(arr,size);
+        refresh();}
     return i + 1;
 }
 /// \brief Быстрая сортировка
@@ -136,18 +150,18 @@ int partition( int* arr, int left, int right, int size)
 /// \param left - левая граница
 /// \param right - правая граница
 /// \param vec - вектор, хранящий все итерации, чтобы впоследствии их визуализировать
-void quickSort( int* arr, int left, int right, int size)
+void quickSort( int* arr, int left, int right, int size, bool do_sort)
 {
     int p;
     if (left < right) {
-        p = partition(arr, left, right, size);
-        quickSort( arr, left, p - 1, size);
-        quickSort( arr, p + 1, right, size);
+        p = partition(arr, left, right, size, do_sort);
+        quickSort( arr, left, p - 1, size, do_sort);
+        quickSort( arr, p + 1, right, size, do_sort);
     }
 }
 
 //СОРТИРОВКА ШЕЛЛА
-void ShellSort( int* arr, int size)
+void ShellSort( int* arr, int size, bool do_sort)
 {
     for (int step = size / 2; step > 0; step = step / 2)  // Расстояние между элементами
     {
@@ -158,8 +172,10 @@ void ShellSort( int* arr, int size)
                 if (arr[j] > arr[j + step])                 // Сравниваем элементы
                 {
                     std::swap(arr[j], arr[j + step]);
-            picturing(arr,size);
-                    refresh();
+                    if (do_sort){
+                        picturing(arr,size);
+                        refresh();
+                    }
                 }
             }
         }
@@ -167,67 +183,74 @@ void ShellSort( int* arr, int size)
 }
 
 
-void stooge_sort( int* arr, int left, int right, int size){
+void stooge_sort( int* arr, int left, int right, int size, bool do_sort){
     if(arr[left]> arr[right]){
         std::swap(arr[left], arr[right]);
+        if (do_sort){
             picturing(arr,size);
-        refresh();
+            refresh();
+        }
     }
     if(left+1 >= right){
         return ;
     }
     int temp;
     temp = (right-left+1)/3;
-    stooge_sort( arr, left, right - temp, size);
-    stooge_sort( arr, left + temp, right, size);
-    stooge_sort( arr, left, right - temp, size);
+    stooge_sort( arr, left, right - temp, size, do_sort);
+    stooge_sort( arr, left + temp, right, size, do_sort);
+    stooge_sort( arr, left, right - temp, size, do_sort);
 
 }
 
 
-void slow_sort( int* arr, int left, int right, int size){
+void slow_sort( int* arr, int left, int right, int size, bool do_sort){
     if (left>=right){
         return;
     }
     int middle = (left+right)/2;
-    slow_sort( arr, left, middle, size);
-    slow_sort(arr, middle+1, right, size);
+    slow_sort( arr, left, middle, size, do_sort);
+    slow_sort(arr, middle+1, right, size, do_sort);
     if (arr[right]< arr[middle]){
         std::swap(arr[right], arr[middle]);
+        if (do_sort){
             picturing(arr,size);
-        refresh();
+            refresh();
+        }
     }
-    slow_sort( arr, left, right-1, size);
+    slow_sort( arr, left, right-1, size, do_sort);
 }
 
 
-void odd_even_sort( int *arr, int size){
+void odd_even_sort( int *arr, int size, bool do_sort){
     bool is_sorted =false;
     while (!is_sorted){
         is_sorted=true;
         for (int i =1; i<=size-2; i=i+2){
             if (arr[i]> arr[i+1]){
                 std::swap(arr[i], arr[i+1]);
-            picturing(arr,size);
-                refresh();
+                if (do_sort){
+                    picturing(arr,size);
+                    refresh();}
                 is_sorted=false;
             }
         }
         for (int i =0; i<=size-2; i=i+2){
             if (arr[i]> arr[i+1]){
                 std::swap(arr[i], arr[i+1]);
-            picturing(arr,size);
-                refresh();
+                if (do_sort){
+                    picturing(arr,size);
+                    refresh();}
                 is_sorted=false;
             }
         }
     }
     return;
 }
-void bogo_sort( int *arr, int size, bool is_sorted)
+void bogo_sort( int *arr, int size, bool is_sorted, bool do_sort)
 {
-            picturing(arr,size);
-    refresh();
+    if (do_sort){
+        picturing(arr,size);
+        refresh();}
     is_sorted = true;
     for (int i=1; i<size; i++){
         if (arr[i]<arr[i-1]){

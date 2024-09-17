@@ -35,18 +35,17 @@ void peremeshka(int counter, PRNG& generator, std::vector<int>& randomcheeeck, s
 
 }
 
-void numbers(int* array){
+void numbers(int* array, int size){
     PRNG generator;
     initGenerator(generator);
 
-    int n = 45;
     std::vector<int> data;
     std::vector<int> randomcheeeck;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < size; i++) {
         data.push_back(i);
     }
 
-    int counter = n;
+    int counter = size;
     peremeshka(counter, generator, randomcheeeck, data);
     int counter1 = 0;
     for (int elem : randomcheeeck) {

@@ -22,68 +22,70 @@ int main(int argc, char *argv[])
     timeout(-1);
     noecho();
     cbreak();
-    int arr[45];
-    numbers(arr);
-    int row, col;
-    int x, y;
-    int size = sizeof(arr)/sizeof(arr[0]);
+    int row, col, size;
     getmaxyx(stdscr,row,col);
     WINDOW* win = newwin(row,col,0,0);
-    x = row;
-    y=0;
+    if (row > 25){
+        size = 45;
+    }
+    else{
+        size = 22;
+    }
     bool seen_cmd = false;
+    int arr[size];
+    numbers(arr, size);
     if (!strcmp(argv[1], "gnome")){
         seen_cmd=true;
-        gnome_sort(arr, size);
+        gnome_sort(arr, size, 1);
     } 
     if (!strcmp(argv[1], "selection")){
-        selectionSort(arr, size);
+        selectionSort(arr, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "insert")){
-        insertSort(arr, size);
+        insertSort(arr, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "bubble")){
-        bubbleSort(arr, size);
+        bubbleSort(arr, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "cocktail")){
-        cocktailSort(arr, size);
+        cocktailSort(arr, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "quick")){
         int left = 0;
         int right = size-1;
-        quickSort(arr, left, right, size);
+        quickSort(arr, left, right, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "shell")){
-        ShellSort(arr, size);
+        ShellSort(arr, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "stooge")){
         int left = 0;
         int right = size-1;
-        stooge_sort(arr, left, right, size);
+        stooge_sort(arr, left, right, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "slow")){
         int left = 0;
         int right = size-1;
-        slow_sort(arr, left, right, size);
+        slow_sort(arr, left, right, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "odd-even")){
-        odd_even_sort(arr, size);
+        odd_even_sort(arr, size, 1);
         seen_cmd=true;
     } 
     if (!strcmp(argv[1], "bogo")){
         seen_cmd=true;
         bool is_sorted = false;
         while (!is_sorted){
-            bogo_sort(arr, size,is_sorted);
-            numbers(arr);
+            bogo_sort(arr, size,is_sorted, 1);
+            numbers(arr, size);
         }
     }
     if (seen_cmd == false){
@@ -91,8 +93,8 @@ int main(int argc, char *argv[])
         seen_cmd=true;
         bool is_sorted = false;
         while (!is_sorted){
-            bogo_sort(arr, size,is_sorted);
-            numbers(arr);
+            bogo_sort(arr, size,is_sorted, 1);
+            numbers(arr, size);
         }
     }
     getch(); // ждём нажатия символа

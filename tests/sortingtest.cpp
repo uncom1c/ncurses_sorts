@@ -14,7 +14,7 @@ TEST(SortingTests, TestselectionSort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    selectionSort(listUnSorted, 45);
+    selectionSort(listUnSorted, 45, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -28,7 +28,7 @@ TEST(SortingTests, TestinsertSort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    insertSort(listUnSorted, size);
+    insertSort(listUnSorted, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -41,7 +41,7 @@ TEST(SortingTests, TestbubbleSort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    bubbleSort(listUnSorted, size);
+    bubbleSort(listUnSorted, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -55,7 +55,7 @@ TEST(SortingTests, TestcocktailSort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    cocktailSort(listUnSorted, size);
+    cocktailSort(listUnSorted, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -70,7 +70,7 @@ TEST(SortingTests, TestquickSort)
     }
     int left =0;
     int right = 44;
-    quickSort(listUnSorted, left, right, size);
+    quickSort(listUnSorted, left, right, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -84,7 +84,7 @@ TEST(SortingTests, TestshellSort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    ShellSort(listUnSorted, size);
+    ShellSort(listUnSorted, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -98,7 +98,7 @@ TEST(SortingTests, TestgnomeSort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    gnome_sort(listUnSorted, size);
+    gnome_sort(listUnSorted, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -114,7 +114,7 @@ TEST(SortingTests, TeststoogeSort)
     }
     int left =0;
     int right = 44;
-    stooge_sort(listUnSorted, left, right, size);
+    stooge_sort(listUnSorted, left, right, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -130,7 +130,7 @@ TEST(SortingTests, TestslowSort)
     }
     int left =0;
     int right = 44;
-    slow_sort(listUnSorted, left, right, size);
+    slow_sort(listUnSorted, left, right, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }
@@ -144,7 +144,7 @@ TEST(SortingTests, Test_odd_even_Sort)
         listUnSorted[i] = 44 - i;
         listSorted[i] = i;
     }
-    odd_even_sort(listUnSorted, size);
+    odd_even_sort(listUnSorted, size, 0);
     for (int i = 0; i < size; i++){
         ASSERT_EQ(listUnSorted[i], listSorted[i]);
     }

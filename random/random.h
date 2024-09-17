@@ -1,3 +1,3 @@
 #include "random.cpp"
 
-void numbers(int* array);
+void numbers(int* array, int size);
