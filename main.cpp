@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     getmaxyx(stdscr,row,col);
     WINDOW* win = newwin(row,col,0,0);
     if (row > 25){
-        size = 45;
+        size = 46;
     }
     else{
         size = 22;

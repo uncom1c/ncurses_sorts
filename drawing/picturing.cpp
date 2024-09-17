@@ -6,7 +6,7 @@ void picturing( int *arr, int size){
     int row, col;
     getmaxyx(stdscr,row,col);
     x= row;
-    y = 0;
+    y = 3;
     WINDOW* win = newwin(row,col,0,0);
     erase();
     for(int i = 0; i< size;i++)
