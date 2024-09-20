@@ -1,5 +1,5 @@
-#include "sorts.cpp"
 
+#include "sorts.cpp"
 void gnome_sort(int *arr, int size , bool do_sort);
 void selectionSort( int* arr, int size, bool do_sort);
 void insertSort( int* arr, int size, bool do_sort);

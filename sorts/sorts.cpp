@@ -2,6 +2,14 @@
 #include <iostream>
 #include <ncurses.h>
 
+// ГНОМЬЯ СОРТИРОВКА
+/// \brief Гномья сортировка
+/// \brief Алгоритм является соединенной версией алгоритма сортировки пузырьком
+/// и вставок \brief Алгоритм находит позицию, где элементы в неправильном
+/// порядке и меняет их местами, после чего шагает назад, пока не вставит все на
+/// свое место, потом идет вперед \param arr - массив из int, случайно
+/// распределенный \param size - размер arr
+/// \param do_sort - визуализировать ли сортировку ?
 void gnome_sort(int *arr, int size, bool do_sort) {
   int i = 1;
   int j = 2;
@@ -27,6 +35,12 @@ void gnome_sort(int *arr, int size, bool do_sort) {
     }
   }
 }
+
+/// \brief Сортировка выбором
+/// \brief Выбираем минимальный элемент -> переносим его в начало
+/// \param arr - массив из int, случайно распределенный
+/// \param size - размер arr
+/// \param do_sort - визуализировать ли сортировку ?
 void selectionSort(int *arr, int size, bool do_sort) {
   int min;
   for (int i = 0; i < size - 1; i++) {
@@ -46,6 +60,11 @@ void selectionSort(int *arr, int size, bool do_sort) {
     }
   }
 }
+/// \brief Сортировка вставкой
+/// \brief Прохождение по каждому элементу и перемещение элемента на свое место
+/// в отсортированном массиве \param arr - массив из int, случайно
+/// распределенный \param size - размер arr
+/// \param do_sort - визуализировать ли сортировку ?
 void insertSort(int *arr, int size, bool do_sort) {
   for (int i = 1; i < size; i++) {
     for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
@@ -60,9 +79,9 @@ void insertSort(int *arr, int size, bool do_sort) {
 
 /// \brief Сортировка пузырьком
 /// \brief Прохождение по каждому элементу и сравнение каждой последующей пары.
-/// Если они не удовлетворяют сортировке то менять местами \param arr -
-/// рандомное распределение \param size - размер arr \param vec - вектор,
-/// хранящий все итерации, чтобы впоследствии их визуализировать
+/// Если они не удовлетворяют сортировке то менять местами \param arr - массив
+/// из int, случайно распределенный \param size - размер arr
+/// \param do_sort - визуализировать ли сортировку ?
 void bubbleSort(int *arr, int size, bool do_sort) {
 
   for (int i = 0; i < size - 1; ++i) // i - номер прохода
@@ -79,12 +98,14 @@ void bubbleSort(int *arr, int size, bool do_sort) {
     }
   }
 }
+
 /// \brief Сортировка шейкером
 /// \brief Алгоритм очень похож на пузырек, но при завершении обхода списка этот
 /// алгоритм не начинает все время с одного и того же конца, как пузырёк, а
-/// ходит туда-сюда \param arr - рандомное распределение \param n - размер arr
-/// \param vec - вектор, хранящий все итерации, чтобы впоследствии их
-/// визуализировать
+/// ходит туда-сюда
+/// \param arr - массив из int, случайно распределенный 
+/// \param size - размер arr 
+/// \param do_sort - визуализировать ли сортировку ?
 void cocktailSort(int *arr, int size, bool do_sort) {
   bool flag = true;
   int start = 0, end = size - 1;
@@ -119,6 +140,11 @@ void cocktailSort(int *arr, int size, bool do_sort) {
     start++;
   }
 }
+/// \brief вспомогательная фунция для быстрой сортировки
+/// \brief возвращает случайный элемент p и меняет массив так, что все, меньшее
+/// p - слева от него, а большее - справа \param arr - массив из int, случайно
+/// распределенный \param left - левая граница \param right - правая граница
+/// \param do_sort - визуализировать ли сортировку ?
 int partition(int *arr, int left, int right, int size, bool do_sort) {
   int median = arr[right];
   int i = left - 1;
@@ -140,12 +166,13 @@ int partition(int *arr, int left, int right, int size, bool do_sort) {
   }
   return i + 1;
 }
+
 /// \brief Быстрая сортировка
-/// \param arr - рандомное распределение
-/// \param left - левая граница
-/// \param right - правая граница
-/// \param vec - вектор, хранящий все итерации, чтобы впоследствии их
-/// визуализировать
+/// \brief Сначала запускает вспомогательную функцию partition, затем
+/// относительно двух возвращенных половин вызывает сама себя, пока не
+/// отсортируется \param arr - массив из int, случайно распределенный \param
+/// left - левая граница \param right - правая граница 
+/// \param do_sort - визуализировать ли сортировку ?
 void quickSort(int *arr, int left, int right, int size, bool do_sort) {
   int p;
   if (left < right) {
@@ -156,6 +183,13 @@ void quickSort(int *arr, int left, int right, int size, bool do_sort) {
 }
 
 // СОРТИРОВКА ШЕЛЛА
+/// \brief Сортировка шелла
+/// \brief Алгоритм является улучшенной версией алгоритма вставок
+/// Сначала сортируются значения, стоящие на расстоянии step друг от друга,
+/// затем step уменьшается, пока не станет равен 1
+/// \param arr - массив из int, случайно распределенный
+/// \param size - размер arr
+/// \param do_sort - визуализировать ли сортировку ?
 void ShellSort(int *arr, int size, bool do_sort) {
   for (int step = size / 2; step > 0;
        step = step / 2) // Расстояние между элементами
@@ -178,6 +212,15 @@ void ShellSort(int *arr, int size, bool do_sort) {
   }
 }
 
+// ПРИДУРКОВАТАЯ СОРТИРОВКА
+/// \brief Придурковатая сортировка
+/// \brief Если элемент в начале списка больше, чем элемент в конце - меняем их
+/// местами \brief Если в текущем подмножестве списка более трех элементов, то
+/// рекурсивно вызывать сортировку относительно первых 2/3 списка затем
+/// относительно последних 2/3 списка, а потом опять относительно первых 2/3
+/// списка \param arr - массив из int, случайно распределенный \param left -
+/// левая граница \param right - правая граница 
+/// \param do_sort - визуализировать ли сортировку ?
 void stooge_sort(int *arr, int left, int right, int size, bool do_sort) {
   if (arr[left] > arr[right]) {
     std::swap(arr[left], arr[right]);
@@ -196,6 +239,12 @@ void stooge_sort(int *arr, int left, int right, int size, bool do_sort) {
   stooge_sort(arr, left, right - temp, size, do_sort);
 }
 
+/// \brief Медленная сортировка
+/// \brief 
+/// \param arr - массив из int, случайно распределенный
+/// \param left - левая граница
+/// \param right - правая граница
+/// \param do_sort - визуализировать ли сортировку ?
 void slow_sort(int *arr, int left, int right, int size, bool do_sort) {
   if (left >= right) {
     return;
@@ -213,6 +262,11 @@ void slow_sort(int *arr, int left, int right, int size, bool do_sort) {
   slow_sort(arr, left, right - 1, size, do_sort);
 }
 
+/// \brief Четная-нечетная сортировка
+/// \brief 
+/// \param arr - массив из int, случайно распределенный
+/// \param size - размер arr
+/// \param do_sort - визуализировать ли сортировку ?
 void odd_even_sort(int *arr, int size, bool do_sort) {
   bool is_sorted = false;
   while (!is_sorted) {
@@ -240,6 +294,14 @@ void odd_even_sort(int *arr, int size, bool do_sort) {
   }
   return;
 }
+
+
+/// \brief Бого сорт
+/// \brief Сортировка перемешкой
+/// \param arr - массив из int, случайно распределенный
+/// \param size - размер arr
+/// \param is_sorted - проверка на отсортированность
+/// \param do_sort - визуализировать ли сортировку ?
 void bogo_sort(int *arr, int size, bool is_sorted, bool do_sort) {
   if (do_sort) {
     picturing(arr, size);
