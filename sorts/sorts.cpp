@@ -17,10 +17,6 @@ void gnome_sort(int *arr, int size, bool do_sort) {
     if (arr[i - 1] < arr[i]) {
       i = j;
       j++;
-      if (do_sort) {
-        picturing(arr, size);
-        refresh();
-      }
     } else {
       std::swap(arr[i - 1], arr[i]);
       i = i - 1;
