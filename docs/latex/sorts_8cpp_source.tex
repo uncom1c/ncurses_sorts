@@ -1,0 +1,250 @@
+\doxysection{sorts.\+cpp}
+\hypertarget{sorts_8cpp_source}{}\label{sorts_8cpp_source}\index{sorts/sorts.cpp@{sorts/sorts.cpp}}
+\mbox{\hyperlink{sorts_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{picturing_8h}{../drawing/picturing.h}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <ncurses.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ ГНОМЬЯ\ СОРТИРОВКА}}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_a2f099792cbb9280e17f670c0b0769fa4}{gnome\_sort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{int}\ i\ =\ 1;}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{int}\ j\ =\ 2;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordflow}{while}\ (i\ <\ size)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i\ -\/\ 1]\ <\ arr[i])\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ i\ =\ j;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ std::swap(arr[i\ -\/\ 1],\ arr[i]);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ i\ =\ i\ -\/\ 1;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ i\ =\ j;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_a521c3839a66db179d2a84fed7e995ec6}{selectionSort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{int}\ min;}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ min\ =\ i;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 1;\ j\ <\ size;\ j++)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j]\ <\ arr[min])\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ min\ =\ j;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (min\ ==\ i)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00055\ \ \ \ \ std::swap(arr[i],\ arr[min]);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \}}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_aaa5ab81815c42294489bfe4221afca3e}{insertSort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i;\ j\ >\ 0\ \&\&\ arr[j\ -\/\ 1]\ >\ arr[j];\ j-\/-\/)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ std::swap(arr[j\ -\/\ 1],\ arr[j]);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_ab66d094f3b6a290e1f810c756d06af9f}{bubbleSort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size\ -\/\ 1;\ ++i)\ \textcolor{comment}{//\ i\ -\/\ номер\ прохода}}
+\DoxyCodeLine{00088\ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size\ -\/\ 1;\ ++j)\ \textcolor{comment}{//\ внутренний\ цикл\ прохода}}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j\ +\ 1]\ <\ arr[j])\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ std::swap(arr[j],\ arr[j\ +\ 1]);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_a99689e54fa1f50d108e95fb2eb070575}{cocktailSort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{bool}\ flag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{int}\ start\ =\ 0,\ end\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordflow}{while}\ (flag)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ flag\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ start;\ i\ <\ end;\ i++)\ \{\ \textcolor{comment}{//\ scan\ from\ left\ to\ right\ as\ bubble}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sort}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ >\ arr[i\ +\ 1])\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[i\ +\ 1]);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ flag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (!flag)\ \{\ \textcolor{comment}{//\ if\ nothing\ has\ changed\ simply\ break\ the\ loop}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ flag\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ \ \ end-\/-\/;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ decrease\ the\ end\ pointer}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ end\ -\/\ 1;\ i\ >=\ start;\ i-\/-\/)\ \{\ \textcolor{comment}{//\ scan\ from\ right\ to\ left}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ >\ arr[i\ +\ 1])\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[i\ +\ 1]);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ flag\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ start++;}
+\DoxyCodeLine{00141\ \ \ \}}
+\DoxyCodeLine{00142\ \}}
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sorts_8cpp_a83c53f952a22be51c9970c7eb2e95ca5}{partition}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{int}\ median\ =\ arr[right];}
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{int}\ i\ =\ left\ -\/\ 1;}
+\DoxyCodeLine{00151\ \ \ \textcolor{keywordtype}{int}\ j;}
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordflow}{for}\ (j\ =\ left;\ j\ <\ right;\ j++)\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j]\ <=\ median)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ std::swap(arr[i],\ arr[j]);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \}}
+\DoxyCodeLine{00162\ \ \ std::swap(arr[right],\ arr[i\ +\ 1]);}
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00165\ \ \ \ \ refresh();}
+\DoxyCodeLine{00166\ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordflow}{return}\ i\ +\ 1;}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00176\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_ae4ee9dac5ed3ebce3aedbadace5dcaf0}{quickSort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{int}\ p;}
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordflow}{if}\ (left\ <\ right)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ p\ =\ \mbox{\hyperlink{sorts_8cpp_a83c53f952a22be51c9970c7eb2e95ca5}{partition}}(arr,\ left,\ right,\ size,\ do\_sort);}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{sorts_8cpp_ae4ee9dac5ed3ebce3aedbadace5dcaf0}{quickSort}}(arr,\ left,\ p\ -\/\ 1,\ size,\ do\_sort);}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{sorts_8cpp_ae4ee9dac5ed3ebce3aedbadace5dcaf0}{quickSort}}(arr,\ p\ +\ 1,\ right,\ size,\ do\_sort);}
+\DoxyCodeLine{00182\ \ \ \}}
+\DoxyCodeLine{00183\ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{comment}{//\ СОРТИРОВКА\ ШЕЛЛА}}
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_aad40c0aa86b59d5e2b70c62c9be6165b}{ShellSort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ step\ =\ size\ /\ 2;\ step\ >\ 0;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ step\ =\ step\ /\ 2)\ \textcolor{comment}{//\ Расстояние\ между\ элементами}}
+\DoxyCodeLine{00196\ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ step;\ i\ <\ size;\ i++)\ \textcolor{comment}{//\ Проходим\ по\ массиву}}
+\DoxyCodeLine{00198\ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ -\/\ step;\ j\ >=\ 0;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ j\ =\ j\ -\/\ step)\ \textcolor{comment}{//\ Проходим\ по\ элементам\ массива}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j]\ >\ arr[j\ +\ step])\ \textcolor{comment}{//\ Сравниваем\ элементы}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ std::swap(arr[j],\ arr[j\ +\ step]);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \}}
+\DoxyCodeLine{00213\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{//\ ПРИДУРКОВАТАЯ\ СОРТИРОВКА}}
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_a070c14b045e264ca1a951b0540e1b259}{stooge\_sort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordflow}{if}\ (arr[left]\ >\ arr[right])\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ std::swap(arr[left],\ arr[right]);}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \}}
+\DoxyCodeLine{00232\ \ \ \textcolor{keywordflow}{if}\ (left\ +\ 1\ >=\ right)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00234\ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \textcolor{keywordtype}{int}\ temp;}
+\DoxyCodeLine{00236\ \ \ temp\ =\ (right\ -\/\ left\ +\ 1)\ /\ 3;}
+\DoxyCodeLine{00237\ \ \ \mbox{\hyperlink{sorts_8cpp_a070c14b045e264ca1a951b0540e1b259}{stooge\_sort}}(arr,\ left,\ right\ -\/\ temp,\ size,\ do\_sort);}
+\DoxyCodeLine{00238\ \ \ \mbox{\hyperlink{sorts_8cpp_a070c14b045e264ca1a951b0540e1b259}{stooge\_sort}}(arr,\ left\ +\ temp,\ right,\ size,\ do\_sort);}
+\DoxyCodeLine{00239\ \ \ \mbox{\hyperlink{sorts_8cpp_a070c14b045e264ca1a951b0540e1b259}{stooge\_sort}}(arr,\ left,\ right\ -\/\ temp,\ size,\ do\_sort);}
+\DoxyCodeLine{00240\ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00248\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_a63460545da3b6dcfc111e807255633fc}{slow\_sort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00249\ \ \ \textcolor{keywordflow}{if}\ (left\ >=\ right)\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00251\ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \textcolor{keywordtype}{int}\ middle\ =\ (left\ +\ right)\ /\ 2;}
+\DoxyCodeLine{00253\ \ \ \mbox{\hyperlink{sorts_8cpp_a63460545da3b6dcfc111e807255633fc}{slow\_sort}}(arr,\ left,\ middle,\ size,\ do\_sort);}
+\DoxyCodeLine{00254\ \ \ \mbox{\hyperlink{sorts_8cpp_a63460545da3b6dcfc111e807255633fc}{slow\_sort}}(arr,\ middle\ +\ 1,\ right,\ size,\ do\_sort);}
+\DoxyCodeLine{00255\ \ \ \textcolor{keywordflow}{if}\ (arr[right]\ <\ arr[middle])\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ std::swap(arr[right],\ arr[middle]);}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \}}
+\DoxyCodeLine{00262\ \ \ \mbox{\hyperlink{sorts_8cpp_a63460545da3b6dcfc111e807255633fc}{slow\_sort}}(arr,\ left,\ right\ -\/\ 1,\ size,\ do\_sort);}
+\DoxyCodeLine{00263\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00270\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_aa244c8da7f706f22a79b05d3e458ecf4}{odd\_even\_sort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00271\ \ \ \textcolor{keywordtype}{bool}\ is\_sorted\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00272\ \ \ \textcolor{keywordflow}{while}\ (!is\_sorted)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ is\_sorted\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ size\ -\/\ 2;\ i\ =\ i\ +\ 2)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ >\ arr[i\ +\ 1])\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[i\ +\ 1]);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ is\_sorted\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ size\ -\/\ 2;\ i\ =\ i\ +\ 2)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ >\ arr[i\ +\ 1])\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[i\ +\ 1]);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ is\_sorted\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00296\ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00305\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sorts_8cpp_ad6ff25ff5549c3a50dc054a02aebdd64}{bogo\_sort}}(\textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{bool}\ is\_sorted,\ \textcolor{keywordtype}{bool}\ do\_sort)\ \{}
+\DoxyCodeLine{00306\ \ \ \textcolor{keywordflow}{if}\ (do\_sort)\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(arr,\ size);}
+\DoxyCodeLine{00308\ \ \ \ \ refresh();}
+\DoxyCodeLine{00309\ \ \ \}}
+\DoxyCodeLine{00310\ \ \ is\_sorted\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00311\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[i]\ <\ arr[i\ -\/\ 1])\ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ is\_sorted\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \}}
+\DoxyCodeLine{00316\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,248 @@
+\doxysection{sorts/sorts.h File Reference}
+\hypertarget{sorts_8h}{}\label{sorts_8h}\index{sorts/sorts.h@{sorts/sorts.h}}
+{\ttfamily \#include "{}sorts.\+cpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sorts_8h_a2f099792cbb9280e17f670c0b0769fa4}{gnome\+\_\+sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Гномья сортировка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_a521c3839a66db179d2a84fed7e995ec6}{selection\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Сортировка выбором \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_aaa5ab81815c42294489bfe4221afca3e}{insert\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Сортировка вставкой \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_ab66d094f3b6a290e1f810c756d06af9f}{bubble\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Сортировка пузырьком \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_a99689e54fa1f50d108e95fb2eb070575}{cocktail\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Сортировка шейкером \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_ae4ee9dac5ed3ebce3aedbadace5dcaf0}{quick\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int left, int right, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Быстрая сортировка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_aad40c0aa86b59d5e2b70c62c9be6165b}{Shell\+Sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Сортировка шелла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_a070c14b045e264ca1a951b0540e1b259}{stooge\+\_\+sort}} (int \texorpdfstring{$\ast$}{*}arr, int left, int right, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Придурковатая сортировка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_a63460545da3b6dcfc111e807255633fc}{slow\+\_\+sort}} (int \texorpdfstring{$\ast$}{*}arr, int left, int right, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Медленная сортировка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_aa244c8da7f706f22a79b05d3e458ecf4}{odd\+\_\+even\+\_\+sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Четная-\/нечетная сортировка \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sorts_8h_ad6ff25ff5549c3a50dc054a02aebdd64}{bogo\+\_\+sort}} (int \texorpdfstring{$\ast$}{*}arr, int size, bool is\+\_\+sorted, bool do\+\_\+sort)
+\begin{DoxyCompactList}\small\item\em Бого сорт \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sorts_8h_ad6ff25ff5549c3a50dc054a02aebdd64}\index{sorts.h@{sorts.h}!bogo\_sort@{bogo\_sort}}
+\index{bogo\_sort@{bogo\_sort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{bogo\_sort()}{bogo\_sort()}}
+{\footnotesize\ttfamily \label{sorts_8h_ad6ff25ff5549c3a50dc054a02aebdd64} 
+void bogo\+\_\+sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{is\+\_\+sorted}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Бого сорт 
+
+Сортировка перемешкой 
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный \\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em is\+\_\+sorted} & -\/ проверка на отсортированность \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_ab66d094f3b6a290e1f810c756d06af9f}\index{sorts.h@{sorts.h}!bubbleSort@{bubbleSort}}
+\index{bubbleSort@{bubbleSort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{bubbleSort()}{bubbleSort()}}
+{\footnotesize\ttfamily \label{sorts_8h_ab66d094f3b6a290e1f810c756d06af9f} 
+void bubble\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Сортировка пузырьком 
+
+Прохождение по каждому элементу и сравнение каждой последующей пары. Если они не удовлетворяют сортировке то менять местами
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный\\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_a99689e54fa1f50d108e95fb2eb070575}\index{sorts.h@{sorts.h}!cocktailSort@{cocktailSort}}
+\index{cocktailSort@{cocktailSort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{cocktailSort()}{cocktailSort()}}
+{\footnotesize\ttfamily \label{sorts_8h_a99689e54fa1f50d108e95fb2eb070575} 
+void cocktail\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Сортировка шейкером 
+
+Алгоритм очень похож на пузырек, но при завершении обхода списка этот алгоритм не начинает все время с одного и того же конца, как пузырёк, а ходит туда-\/сюда 
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный \\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_a2f099792cbb9280e17f670c0b0769fa4}\index{sorts.h@{sorts.h}!gnome\_sort@{gnome\_sort}}
+\index{gnome\_sort@{gnome\_sort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{gnome\_sort()}{gnome\_sort()}}
+{\footnotesize\ttfamily \label{sorts_8h_a2f099792cbb9280e17f670c0b0769fa4} 
+void gnome\+\_\+sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Гномья сортировка 
+
+Алгоритм является соединенной версией алгоритма сортировки пузырьком и вставок Алгоритм находит позицию, где элементы в неправильном порядке и меняет их местами, после чего шагает назад, пока не вставит все на свое место, потом идет вперед
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный\\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_aaa5ab81815c42294489bfe4221afca3e}\index{sorts.h@{sorts.h}!insertSort@{insertSort}}
+\index{insertSort@{insertSort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{insertSort()}{insertSort()}}
+{\footnotesize\ttfamily \label{sorts_8h_aaa5ab81815c42294489bfe4221afca3e} 
+void insert\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Сортировка вставкой 
+
+Прохождение по каждому элементу и перемещение элемента на свое место в отсортированном массиве
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный\\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_aa244c8da7f706f22a79b05d3e458ecf4}\index{sorts.h@{sorts.h}!odd\_even\_sort@{odd\_even\_sort}}
+\index{odd\_even\_sort@{odd\_even\_sort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{odd\_even\_sort()}{odd\_even\_sort()}}
+{\footnotesize\ttfamily \label{sorts_8h_aa244c8da7f706f22a79b05d3e458ecf4} 
+void odd\+\_\+even\+\_\+sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Четная-\/нечетная сортировка 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный \\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_ae4ee9dac5ed3ebce3aedbadace5dcaf0}\index{sorts.h@{sorts.h}!quickSort@{quickSort}}
+\index{quickSort@{quickSort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{quickSort()}{quickSort()}}
+{\footnotesize\ttfamily \label{sorts_8h_ae4ee9dac5ed3ebce3aedbadace5dcaf0} 
+void quick\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{left}{, }\item[{int}]{right}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Быстрая сортировка 
+
+Сначала запускает вспомогательную функцию partition, затем относительно двух возвращенных половин вызывает сама себя, пока не отсортируется
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный\\
+\hline
+{\em left} & -\/ левая граница\\
+\hline
+{\em right} & -\/ правая граница \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_a521c3839a66db179d2a84fed7e995ec6}\index{sorts.h@{sorts.h}!selectionSort@{selectionSort}}
+\index{selectionSort@{selectionSort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{selectionSort()}{selectionSort()}}
+{\footnotesize\ttfamily \label{sorts_8h_a521c3839a66db179d2a84fed7e995ec6} 
+void selection\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Сортировка выбором 
+
+Выбираем минимальный элемент -\/\texorpdfstring{$>$}{>} переносим его в начало 
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный \\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_aad40c0aa86b59d5e2b70c62c9be6165b}\index{sorts.h@{sorts.h}!ShellSort@{ShellSort}}
+\index{ShellSort@{ShellSort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{ShellSort()}{ShellSort()}}
+{\footnotesize\ttfamily \label{sorts_8h_aad40c0aa86b59d5e2b70c62c9be6165b} 
+void Shell\+Sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Сортировка шелла 
+
+Алгоритм является улучшенной версией алгоритма вставок Сначала сортируются значения, стоящие на расстоянии step друг от друга, затем step уменьшается, пока не станет равен 1 
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный \\
+\hline
+{\em size} & -\/ размер arr \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_a63460545da3b6dcfc111e807255633fc}\index{sorts.h@{sorts.h}!slow\_sort@{slow\_sort}}
+\index{slow\_sort@{slow\_sort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{slow\_sort()}{slow\_sort()}}
+{\footnotesize\ttfamily \label{sorts_8h_a63460545da3b6dcfc111e807255633fc} 
+void slow\+\_\+sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{left}{, }\item[{int}]{right}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Медленная сортировка 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный \\
+\hline
+{\em left} & -\/ левая граница \\
+\hline
+{\em right} & -\/ правая граница \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}
+\Hypertarget{sorts_8h_a070c14b045e264ca1a951b0540e1b259}\index{sorts.h@{sorts.h}!stooge\_sort@{stooge\_sort}}
+\index{stooge\_sort@{stooge\_sort}!sorts.h@{sorts.h}}
+\doxysubsubsection{\texorpdfstring{stooge\_sort()}{stooge\_sort()}}
+{\footnotesize\ttfamily \label{sorts_8h_a070c14b045e264ca1a951b0540e1b259} 
+void stooge\+\_\+sort (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{int}]{left}{, }\item[{int}]{right}{, }\item[{int}]{size}{, }\item[{bool}]{do\+\_\+sort}{}\end{DoxyParamCaption})}
+
+
+
+Придурковатая сортировка 
+
+Если элемент в начале списка больше, чем элемент в конце -\/ меняем их местами Если в текущем подмножестве списка более трех элементов, то рекурсивно вызывать сортировку относительно первых 2/3 списка затем относительно последних 2/3 списка, а потом опять относительно первых 2/3 списка
+\begin{DoxyParams}{Parameters}
+{\em arr} & -\/ массив из int, случайно распределенный\\
+\hline
+{\em left} & -\/ левая граница\\
+\hline
+{\em right} & -\/ правая граница \\
+\hline
+{\em do\+\_\+sort} & -\/ визуализировать ли сортировку ? \\
+\hline
+\end{DoxyParams}

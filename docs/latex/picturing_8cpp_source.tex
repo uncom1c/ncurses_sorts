@@ -1,0 +1,33 @@
+\doxysection{picturing.\+cpp}
+\hypertarget{picturing_8cpp_source}{}\label{picturing_8cpp_source}\index{drawing/picturing.cpp@{drawing/picturing.cpp}}
+\mbox{\hyperlink{picturing_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ncurses.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{picturing_8cpp_a3deecae8348a6800d105168beb24225e}{picturing}}(\ \textcolor{keywordtype}{int}\ *arr,\ \textcolor{keywordtype}{int}\ size)\{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ col;}
+\DoxyCodeLine{00010\ \ \ \ \ getmaxyx(stdscr,row,col);\ \textcolor{comment}{//\ получение\ размеров\ экрана}}
+\DoxyCodeLine{00011\ \ \ \ \ x=\ row;}
+\DoxyCodeLine{00012\ \ \ \ \ y\ =\ 3;}
+\DoxyCodeLine{00013\ \ \ \ \ WINDOW*\ win\ =\ newwin(row,col,0,0);\ }
+\DoxyCodeLine{00014\ \ \ \ \ erase();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i<\ size;i++)}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ move(x,\ y);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j=0;\ j<arr[i];\ j++)\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ move(x-\/j-\/1,y);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ printw(\textcolor{stringliteral}{"{}x"{}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ move(x-\/j-\/1,y+1);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ printw(\textcolor{stringliteral}{"{}x"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ move(x-\/j-\/1,y+2);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ printw(\textcolor{stringliteral}{"{}x"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ y=y+3;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ usleep(100000);}
+\DoxyCodeLine{00030\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,117 @@
+\doxysection{random/random.cpp File Reference}
+\hypertarget{random_8cpp}{}\label{random_8cpp}\index{random/random.cpp@{random/random.cpp}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPRNG}{PRNG}}
+\begin{DoxyCompactList}\small\item\em класс \doxylink{structPRNG}{PRNG} с генерацией ключа для алгоритма генерации псевдо случайных чисел \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{random_8cpp_acf27d6637189bac0e454e2aa444342ff}{init\+Generator}} (\mbox{\hyperlink{structPRNG}{PRNG}} \&generator)
+\begin{DoxyCompactList}\small\item\em функция init\+Generator для того, чтобы задавать начальное значение seed \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{random_8cpp_a4045ac396c07e0b5b9cf5e48bddc92c9}{random}} (\mbox{\hyperlink{structPRNG}{PRNG}} \&generator, unsigned min\+Value, unsigned max\+Value)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item функция, возвращающая случайный элемент 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{random_8cpp_ac211fa1523e6dd01701003773958aadc}{peremeshka}} (int counter, \mbox{\hyperlink{structPRNG}{PRNG}} \&generator, std\+::vector$<$ int $>$ \&random\+\_\+out, std\+::vector$<$ int $>$ \&data)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item функция, возвращающая перемешанный массив random\+\_\+out 
+\end{DoxyItemize}\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{random_8cpp_a5fb4409e5660ee5775da4e127715fb93}{numbers}} (int \texorpdfstring{$\ast$}{*}array, int size)
+\begin{DoxyCompactList}\small\item\em 
+\begin{DoxyItemize}
+\item функция для перемешки массива array размеров size 
+\end{DoxyItemize}\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{random_8cpp_acf27d6637189bac0e454e2aa444342ff}\index{random.cpp@{random.cpp}!initGenerator@{initGenerator}}
+\index{initGenerator@{initGenerator}!random.cpp@{random.cpp}}
+\doxysubsubsection{\texorpdfstring{initGenerator()}{initGenerator()}}
+{\footnotesize\ttfamily \label{random_8cpp_acf27d6637189bac0e454e2aa444342ff} 
+void init\+Generator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPRNG}{PRNG}} \&}]{generator}{}\end{DoxyParamCaption})}
+
+
+
+функция init\+Generator для того, чтобы задавать начальное значение seed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & -\/ элемент seed, хранящий в себе это значение \\
+\hline
+\end{DoxyParams}
+\Hypertarget{random_8cpp_a5fb4409e5660ee5775da4e127715fb93}\index{random.cpp@{random.cpp}!numbers@{numbers}}
+\index{numbers@{numbers}!random.cpp@{random.cpp}}
+\doxysubsubsection{\texorpdfstring{numbers()}{numbers()}}
+{\footnotesize\ttfamily \label{random_8cpp_a5fb4409e5660ee5775da4e127715fb93} 
+void numbers (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{array}{, }\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item функция для перемешки массива array размеров size 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & -\/ массив который надо перемешать \\
+\hline
+{\em size} & -\/ размер array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{random_8cpp_ac211fa1523e6dd01701003773958aadc}\index{random.cpp@{random.cpp}!peremeshka@{peremeshka}}
+\index{peremeshka@{peremeshka}!random.cpp@{random.cpp}}
+\doxysubsubsection{\texorpdfstring{peremeshka()}{peremeshka()}}
+{\footnotesize\ttfamily \label{random_8cpp_ac211fa1523e6dd01701003773958aadc} 
+void peremeshka (\begin{DoxyParamCaption}\item[{int}]{counter}{, }\item[{\mbox{\hyperlink{structPRNG}{PRNG}} \&}]{generator}{, }\item[{std\+::vector$<$ int $>$ \&}]{random\+\_\+out}{, }\item[{std\+::vector$<$ int $>$ \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item функция, возвращающая перемешанный массив random\+\_\+out 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em counter} & -\/ количество оставшихся элементов для вставки \\
+\hline
+{\em generator} & -\/ элемент seed \\
+\hline
+{\em random\+\_\+out} & -\/ массив со случайным распределением \\
+\hline
+{\em data} & -\/ отсортированный массив, откуда берутся значения для вставки в массив random\+\_\+out \\
+\hline
+\end{DoxyParams}
+\Hypertarget{random_8cpp_a4045ac396c07e0b5b9cf5e48bddc92c9}\index{random.cpp@{random.cpp}!random@{random}}
+\index{random@{random}!random.cpp@{random.cpp}}
+\doxysubsubsection{\texorpdfstring{random()}{random()}}
+{\footnotesize\ttfamily \label{random_8cpp_a4045ac396c07e0b5b9cf5e48bddc92c9} 
+unsigned random (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPRNG}{PRNG}} \&}]{generator}{, }\item[{unsigned}]{min\+Value}{, }\item[{unsigned}]{max\+Value}{}\end{DoxyParamCaption})}
+
+
+
+
+\begin{DoxyItemize}
+\item функция, возвращающая случайный элемент 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em generator} & -\/ начальное значение \\
+\hline
+{\em min\+Value} & -\/ минимально возможный возвращенный элемент \\
+\hline
+{\em max\+Value} & -\/ максимально возможный возвращенный элемент \\
+\hline
+\end{DoxyParams}

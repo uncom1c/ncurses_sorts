@@ -1,0 +1,62 @@
+\doxysection{random.\+cpp}
+\hypertarget{random_8cpp_source}{}\label{random_8cpp_source}\index{random/random.cpp@{random/random.cpp}}
+\mbox{\hyperlink{random_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ncurses.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPRNG}{PRNG}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structPRNG_abd8a2a63930a922fe4a5f550f1751b60}{seed}}\ =\ 0;}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{random_8cpp_acf27d6637189bac0e454e2aa444342ff}{initGenerator}}(\mbox{\hyperlink{structPRNG}{PRNG}}\&\ generator)}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ generator.\mbox{\hyperlink{structPRNG_abd8a2a63930a922fe4a5f550f1751b60}{seed}}\ =\ unsigned(time(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{random_8cpp_a4045ac396c07e0b5b9cf5e48bddc92c9}{random}}(\mbox{\hyperlink{structPRNG}{PRNG}}\&\ generator,\ \textcolor{keywordtype}{unsigned}\ minValue,\ \textcolor{keywordtype}{unsigned}\ maxValue)}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ assert(minValue\ <=\ maxValue);}
+\DoxyCodeLine{00029\ \ \ \ \ generator.\mbox{\hyperlink{structPRNG_abd8a2a63930a922fe4a5f550f1751b60}{seed}}\ =\ (generator.\mbox{\hyperlink{structPRNG_abd8a2a63930a922fe4a5f550f1751b60}{seed}}\ *\ 73129\ +\ 95121);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ (generator.\mbox{\hyperlink{structPRNG_abd8a2a63930a922fe4a5f550f1751b60}{seed}}\ \%\ (maxValue\ +\ 1\ -\/\ minValue))\ +\ minValue;}
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{random_8cpp_ac211fa1523e6dd01701003773958aadc}{peremeshka}}(\textcolor{keywordtype}{int}\ counter,\ \mbox{\hyperlink{structPRNG}{PRNG}}\&\ generator,\ std::vector<int>\&\ random\_out,\ std::vector<int>\&\ data)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{while}\ (counter\ !=\ 0)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ random\_index\ =\ \mbox{\hyperlink{random_8cpp_a4045ac396c07e0b5b9cf5e48bddc92c9}{random}}(generator,\ 0,\ counter\ -\/\ 1);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ random\_out.push\_back(data[random\_index]);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ data.erase(std::next(data.begin(),\ random\_index));}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ counter-\/-\/;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{random_8cpp_a5fb4409e5660ee5775da4e127715fb93}{numbers}}(\textcolor{keywordtype}{int}*\ array,\ \textcolor{keywordtype}{int}\ size)\{}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structPRNG}{PRNG}}\ generator;}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{random_8cpp_acf27d6637189bac0e454e2aa444342ff}{initGenerator}}(generator);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::vector<int>\ data;}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<int>\ randomcheeeck;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ data.push\_back(i);}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ counter\ =\ size;}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{random_8cpp_ac211fa1523e6dd01701003773958aadc}{peremeshka}}(counter,\ generator,\ randomcheeeck,\ data);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{int}\ counter1\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ elem\ :\ randomcheeeck)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ array[counter1]\ =\ elem;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ counter1++;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+
+\end{DoxyCode}
