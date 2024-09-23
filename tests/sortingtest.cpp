@@ -1,11 +1,7 @@
-#include <iostream>
-#include <list>
-#include <vector>
-
-// #include "C:\Users\USER\Documents\cloudfact\cpp_project_tests\sorts\sorts.h"
 #include "../sorts/sorts.h"
 #include <gtest/gtest.h>
 int size = 45;
+
 TEST(SortingTests, TestselectionSort) {
   int listUnSorted[size];
   int listSorted[size];
