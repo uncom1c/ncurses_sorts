@@ -4,8 +4,6 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <vector>
-
 #include "random/random.h"
 #include "sorts/sorts.h"
 int main(int argc, char *argv[]) {

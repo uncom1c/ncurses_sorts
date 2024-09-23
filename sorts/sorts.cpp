@@ -84,9 +84,9 @@ void insertSort(int *arr, int size, bool do_sort) {
 /// \param do_sort - визуализировать ли сортировку ?
 void bubbleSort(int *arr, int size, bool do_sort) {
 
-  for (int i = 0; i < size - 1; ++i) // i - номер прохода
+  for (int i = 0; i < size - 1; ++i)
   {
-    for (int j = 0; j < size - 1; ++j) // внутренний цикл прохода
+    for (int j = 0; j < size - 1; ++j)
     {
       if (arr[j + 1] < arr[j]) {
         std::swap(arr[j], arr[j + 1]);
@@ -111,8 +111,8 @@ void cocktailSort(int *arr, int size, bool do_sort) {
   int start = 0, end = size - 1;
   while (flag) {
     flag = false;
-    for (int i = start; i < end; i++) { // scan from left to right as bubble
-                                        // sort
+    for (int i = start; i < end; i++) {
+                                      
       if (arr[i] > arr[i + 1]) {
         std::swap(arr[i], arr[i + 1]);
         if (do_sort) {
@@ -122,12 +122,12 @@ void cocktailSort(int *arr, int size, bool do_sort) {
         flag = true;
       }
     }
-    if (!flag) { // if nothing has changed simply break the loop
+    if (!flag) {
       break;
     }
     flag = false;
-    end--;                                   // decrease the end pointer
-    for (int i = end - 1; i >= start; i--) { // scan from right to left
+    end--;     
+    for (int i = end - 1; i >= start; i--) {
       if (arr[i] > arr[i + 1]) {
         std::swap(arr[i], arr[i + 1]);
         if (do_sort) {
